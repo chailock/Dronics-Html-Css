@@ -1,0 +1,26 @@
+import React, { useState } from 'react';
+
+const DeleteButtonArray = () => {
+  const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
+
+  const handleDelete = (index) => {
+    const updatedItems = items.filter((_, i) => i !== index);
+    setItems(updatedItems);
+  };
+
+  return (
+    <div>
+      <h2>Array with Delete Buttons</h2>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>
+            {item}
+            <button onClick={() => handleDelete(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default DeleteButtonArray;
